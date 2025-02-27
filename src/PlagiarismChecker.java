@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Plagiarism Checker
  * A tool for finding the longest shared substring between two documents.
@@ -8,7 +11,8 @@
 public class PlagiarismChecker {
 
     private static boolean added;
-    private static boolean[] visited;
+    private static int[] visited;
+    private static final int ALPHABET = 256;
 
     /**
      * This method finds the longest sequence of characters that appear in both texts in the same order,
@@ -18,14 +22,28 @@ public class PlagiarismChecker {
      * @return The length of the longest shared substring.
      */
     public static int longestSharedSubstring(String doc1, String doc2) {
+        // New Idea: Do the same thing I've been doing before but keep a map that holds
+        // the last instance that a letter was used (for example if the most recent A was on
+        // index 4 then store that number under index 0 for A in the map. Then, when a new
+        // A matches, check if the index it's matching with is greater than the most recent and
+        // if it isn't, skip. Once a letter from the 2nd doc matches with the first doc, then prevent
+        // everything from increasing for the entire row other than matching with left/up squares.
+
 
         // TODO Complete this function to return the length of the longest shared substring.
+        doc1 = "aabbaaaaa";
+        doc2 = "aaaaaaabbaaa";
+
+        String temp = doc1;
+        doc1 = doc2;
+        doc2 = temp;
+
 
         added = false;
         int length = 0;
 
         int[][] map = new int[doc1.length()][doc2.length()];
-        visited = new boolean[doc1.length()];
+        visited = new int[doc2.length()];
         // Iterate through the whole map and start filling it out;
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
@@ -36,8 +54,12 @@ public class PlagiarismChecker {
 
         for (int i = 0; i < map.length; i++) {
             System.out.println();
-            for (int j = 0; j < map[0].length; j++)
-                System.out.print("[" + map[i][j] + "]");
+            for (int j = 0; j < map[0].length; j++) {
+                System.out.print("[");
+                if (map[i][j] < 10)
+                System.out.print("0");
+                System.out.print(map[i][j] + "]");
+            }
         }
         System.out.println();
         System.out.println(doc1);
@@ -72,20 +94,31 @@ public class PlagiarismChecker {
         // Up and left are two different values not diagonally that would be your current longest.
     }
 
+    public static int testing(String doc1, String doc2) {
+        return 0;
+    }
+
     public static int findMaxLength(int row, int col, int[][] map, char a, char b) {
-        // Need to make sure to remove the opportunity for a letter to be double or triple counted
-        // by tracking which ones have already been added via a map and a base case here that
-        // basically says if visited[location] = 1, then for the a==b don't add 1.
         int currentLongest = 0;
         if (row > 0)
             currentLongest = map[row - 1][col];
         if (col > 0)
             currentLongest = map[row][col - 1] > currentLongest ? map[row][col - 1] : currentLongest;
         if (a == b) {
-            System.out.println("ping " + a);
-            currentLongest++;
+            System.out.println(a + " | " + row + " | " + col);
+            updateVisited(row, col);
+            if (visited[col] == row + 1)
+                currentLongest++;
         }
-        System.out.println(row + " | " + col + " | " + currentLongest);
         return currentLongest;
+    }
+
+    public static void updateVisited(int row, int col) {
+        // If the letter has never been visited, update it to col.
+        if (visited[col] == 0)
+            visited[col] = row + 1;
+        else if (col >= 1)
+            if (visited[col-1] > visited[col])
+                visited[col] = row + 1;
     }
 }
