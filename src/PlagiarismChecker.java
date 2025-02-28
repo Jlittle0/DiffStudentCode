@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -22,6 +23,7 @@ public class PlagiarismChecker {
      * @return The length of the longest shared substring.
      */
     public static int longestSharedSubstring(String doc1, String doc2) {
+        System.out.println(alternativeSolution(doc1, doc2));
         // Initialize a "grid" to conduct tabulation by comparing doc1 and doc2.
         int[][] grid = new int[doc2.length()][doc1.length()];
 
@@ -73,5 +75,32 @@ public class PlagiarismChecker {
                 map[index] = 1;
         }
         return currentLongest;
+    }
+
+    public static int alternativeSolution(String doc1, String doc2) {
+        int currentIndex = 0;
+        int currentPath = 0;
+
+        // Array that holds a string of numbers separated by commas
+        String[] array = new String[ALPHABET];
+        for (int i = 0; i < array.length; i++)
+            array[i] = "";
+
+        for (int i = 0; i < doc1.length(); i++)
+            array[doc1.charAt(i)] += i + ",";
+
+        // For every instance of a specific letter, find the lowest value and "use" it.
+        for (int i = 0; i < doc2.length(); i++) {
+            List<String> temp = new ArrayList<String>();
+            temp = Arrays.asList(array[doc2.charAt(i)].split(","));
+            for (String s : temp)
+                if (Integer.valueOf(s) > currentIndex) {
+                    currentIndex = Integer.valueOf(s);
+                    currentPath++;
+                    break;
+                }
+        }
+        return currentPath;
+        // Now just implement the heating up solution and it should work.
     }
 }
