@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f68ad4e4-7dd7-4950-93fb-5d96ae262228" name="Changes" comment="Worked for like an hour doing CS, seem to have found a fix for my problem which I've tried on a google sheet and that seems to work. Will use my hour or so before 3 hours hit to work on implementation.">
+    <list default="true" id="f68ad4e4-7dd7-4950-93fb-5d96ae262228" name="Changes" comment="First attempt - 3 hours">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WORK_LOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/WORK_LOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlagiarismChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlagiarismChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +40,16 @@
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.PlagiarismCheckerTest.testCorrectSmall">
+  <component name="RunManager" selected="JUnit.PlagiarismCheckerTest">
+    <configuration name="PlagiarismCheckerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DiffStudentCode" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PlagiarismCheckerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PlagiarismCheckerTest.testCorrectMed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DiffStudentCode" />
       <option name="PACKAGE_NAME" value="" />
@@ -74,8 +82,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PlagiarismCheckerTest.testCorrectSmall" />
+        <item itemvalue="JUnit.PlagiarismCheckerTest" />
         <item itemvalue="JUnit.PlagiarismCheckerTest.testCorrectMed" />
+        <item itemvalue="JUnit.PlagiarismCheckerTest.testCorrectSmall" />
         <item itemvalue="JUnit.PlagiarismCheckerTest.testEdgeCase" />
       </list>
     </recent_temporary>
@@ -113,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740681334280</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="First attempt - 3 hours">
+      <option name="closed" value="true" />
+      <created>1740774047584</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1740774047584</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,6 +147,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Removed all the checks for overlaps and now the program passes the first test case, will still need to do the rest though." />
     <MESSAGE value="Worked for like an hour doing CS, seem to have found a fix for my problem which I've tried on a google sheet and that seems to work. Will use my hour or so before 3 hours hit to work on implementation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Worked for like an hour doing CS, seem to have found a fix for my problem which I've tried on a google sheet and that seems to work. Will use my hour or so before 3 hours hit to work on implementation." />
+    <MESSAGE value="First attempt - 3 hours" />
+    <option name="LAST_COMMIT_MESSAGE" value="First attempt - 3 hours" />
   </component>
 </project>
